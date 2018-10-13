@@ -1,4 +1,5 @@
-# Los Hermanos Recomendables Movie Recommendation System
+# Los Hermanos Recomendables 
+# Movie Recommendation System
 
 Database design and implementation assignment. Copenhagen School of Design and Technology. October 2018
 
