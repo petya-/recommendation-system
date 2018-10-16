@@ -9,7 +9,7 @@ CREATE DATABASE "lhrDB"
     TABLESPACE = pg_default
     CONNECTION LIMIT = -1;
 
--- Connect to database
+-- Connect to the database
 \connect lhrDB
 
 -- Add needed extensions
@@ -22,11 +22,11 @@ create extension pg_trgm;
 
 CREATE TABLE users ( 
     id SERIAL PRIMARY KEY,
-    email text,
-    password text,
+    email text NOT NULL UNIQUE,
+    password text NOT NULL,
     firstName text,
     lastName text,
-    enabled boolean,
+    enabled boolean DEFAULT true,
     created_at timestamp,
     updated_at timestamp
 );
@@ -102,7 +102,6 @@ CREATE TABLE ratings (
 
 CREATE INDEX movies_actors_movie_id ON movies_actors (movie_id); 
 CREATE INDEX movies_actors_actor_id ON movies_actors (actor_id); 
-<<<<<<< HEAD
 CREATE INDEX watched_movies_movie_id ON watched_movies (movie_id); 
 CREATE INDEX watched_movies_user_id ON watched_movies (user_id); 
 CREATE INDEX user_movies_lists_movie_id ON user_movies_lists (movie_id); 
@@ -110,6 +109,4 @@ CREATE INDEX user_movies_lists_user_id ON user_movies_lists (user_id);
 CREATE INDEX ratings_movie_id ON ratings (movie_id); 
 CREATE INDEX ratings_user_id ON ratings (user_id); 
 
-=======
->>>>>>> e11fdf46bac3c1a422f277c8c21b64595b378079
 CREATE INDEX movies_genres_cube ON movies USING gist (genre);
