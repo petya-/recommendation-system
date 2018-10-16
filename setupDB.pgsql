@@ -27,22 +27,22 @@ CREATE TABLE users (
     firstName text,
     lastName text,
     enabled boolean DEFAULT TRUE,
-    created_at timestamp DEFAULT CURRENT_DATE,
-    updated_at timestamp DEFAULT CURRENT_DATE
+    created_at timestamp DEFAULT now(),
+    updated_at timestamp DEFAULT now()
 );
 CREATE TABLE access_tokens ( 
     id SERIAL PRIMARY KEY,
     ttl integer,
     userId integer REFERENCES users NOT NULL, 
-    created_at timestamp DEFAULT CURRENT_DATE,
-    updated_at timestamp DEFAULT CURRENT_DATE
+    created_at timestamp DEFAULT now(),
+    updated_at timestamp DEFAULT now()
 );
 CREATE TABLE genres ( 
     id SERIAL PRIMARY KEY,
     name text UNIQUE,
     position integer,
-    created_at timestamp DEFAULT CURRENT_DATE,
-    updated_at timestamp DEFAULT CURRENT_DATE
+    created_at timestamp DEFAULT now(),
+    updated_at timestamp DEFAULT now()
 
 );
 CREATE TABLE movies (
@@ -51,51 +51,43 @@ CREATE TABLE movies (
     genre cube,
     release_date date,
     avg_rating float,
-    created_at timestamp DEFAULT CURRENT_DATE,
-    updated_at timestamp DEFAULT CURRENT_DATE
+    created_at timestamp DEFAULT now(),
+    updated_at timestamp DEFAULT now()
 );
 CREATE TABLE actors (
     id SERIAL PRIMARY KEY,
     name text,
-    created_at timestamp DEFAULT CURRENT_DATE,
-    updated_at timestamp DEFAULT CURRENT_DATE
+    created_at timestamp DEFAULT now(),
+    updated_at timestamp DEFAULT now()
 );
 CREATE TABLE movies_actors (
     movie_id integer REFERENCES movies NOT NULL, 
     actor_id integer REFERENCES actors NOT NULL, 
     UNIQUE (movie_id, actor_id),
-    created_at timestamp DEFAULT CURRENT_DATE,
-    updated_at timestamp DEFAULT CURRENT_DATE
+    created_at timestamp DEFAULT now(),
+    updated_at timestamp DEFAULT now()
 );
 CREATE TABLE user_movies_lists ( 
     id SERIAL PRIMARY KEY,
     name text,
     movie_id integer REFERENCES movies NOT NULL, 
     user_id integer REFERENCES users NOT NULL, 
-    created_at timestamp DEFAULT CURRENT_DATE,
-    updated_at timestamp DEFAULT CURRENT_DATE
-);
-CREATE TABLE ratings (
-    id SERIAL PRIMARY KEY,
-    rating integer,
-    movie_id integer REFERENCES movies NOT NULL, 
-    user_id integer REFERENCES users NOT NULL, 
-    created_at timestamp DEFAULT CURRENT_DATE,
-    updated_at timestamp DEFAULT CURRENT_DATE
+    created_at timestamp DEFAULT now(),
+    updated_at timestamp DEFAULT now()
 );
 CREATE TABLE watched_movies ( 
     movie_id integer REFERENCES movies NOT NULL, 
     user_id integer REFERENCES actors NOT NULL, 
-    created_at timestamp DEFAULT CURRENT_DATE,
-    updated_at timestamp DEFAULT CURRENT_DATE
+    created_at timestamp DEFAULT now(),
+    updated_at timestamp DEFAULT now()
 );
 CREATE TABLE ratings ( 
     id SERIAL PRIMARY KEY,
     rating integer NOT NULL CHECK (rating BETWEEN 1 AND 5),
     movie_id integer REFERENCES movies NOT NULL, 
     user_id integer REFERENCES actors NOT NULL, 
-    created_at timestamp DEFAULT CURRENT_DATE,
-    updated_at timestamp DEFAULT CURRENT_DATE
+    created_at timestamp DEFAULT now(),
+    updated_at timestamp DEFAULT now()
 );
 
 -- Create indexes
