@@ -5,7 +5,7 @@ Database design and implementation assignment. Copenhagen School of Design and T
 ### Creating the database and the schema
 >run the following command in psql
 ```
-some command
+psql -U postgres postgres -f C:/path/to/setupDB.pgsql
 ```
 
 
