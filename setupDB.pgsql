@@ -18,7 +18,7 @@ create extension cube;
 create extension fuzzystrmatch;
 create extension pg_trgm;
 
--- Create schema
+-- Create tables
 
 CREATE TABLE users ( 
     id SERIAL PRIMARY KEY,
@@ -71,7 +71,15 @@ CREATE TABLE user_movies_lists (
     id SERIAL PRIMARY KEY,
     name text,
     movie_id integer REFERENCES movies NOT NULL, 
-    user_id integer REFERENCES actors NOT NULL, 
+    user_id integer REFERENCES users NOT NULL, 
+    created_at timestamp,
+    updated_at timestamp
+);
+CREATE TABLE ratings (
+    id SERIAL PRIMARY KEY,
+    rating integer,
+    movie_id integer REFERENCES movies NOT NULL, 
+    user_id integer REFERENCES users NOT NULL, 
     created_at timestamp,
     updated_at timestamp
 );
@@ -94,6 +102,7 @@ CREATE TABLE ratings (
 
 CREATE INDEX movies_actors_movie_id ON movies_actors (movie_id); 
 CREATE INDEX movies_actors_actor_id ON movies_actors (actor_id); 
+<<<<<<< HEAD
 CREATE INDEX watched_movies_movie_id ON watched_movies (movie_id); 
 CREATE INDEX watched_movies_user_id ON watched_movies (user_id); 
 CREATE INDEX user_movies_lists_movie_id ON user_movies_lists (movie_id); 
@@ -101,4 +110,6 @@ CREATE INDEX user_movies_lists_user_id ON user_movies_lists (user_id);
 CREATE INDEX ratings_movie_id ON ratings (movie_id); 
 CREATE INDEX ratings_user_id ON ratings (user_id); 
 
+=======
+>>>>>>> e11fdf46bac3c1a422f277c8c21b64595b378079
 CREATE INDEX movies_genres_cube ON movies USING gist (genre);
