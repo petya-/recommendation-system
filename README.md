@@ -3,17 +3,18 @@
 Database design and implementation assignment. Copenhagen School of Design and Technology. October 2018
 
 ### Creating the database and the schema
->run the following command from your terminal. 
+>run the following command from your terminal 
 Make sure you have PostgreSQL installed and the right path to the pgsql file
 ```
-psql -U postgres postgres -f C:/path/to/setupDB.pgsql
+psql -U postgres postgres -f /Users/path/to/file/setupDB.pgsql
 ```
 
 
 ### Generating Mock Data
->run the following command in psql
+>run the following command from your terminal
+Make sure you have PostgreSQL installed and the right path to the pgsql file
 ```
-some command
+psql -U postgres postgres -f /Users/path/to/file/mockData.pgsq
 ```
 
 ### Search through the database
