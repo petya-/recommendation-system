@@ -4,8 +4,8 @@ CREATE DATABASE "lhrDB"
     WITH 
     OWNER = postgres
     ENCODING = 'UTF8'
-    LC_COLLATE = 'C'
-    LC_CTYPE = 'C'
+    LC_COLLATE = 'English_United Kingdom.1252'
+    LC_CTYPE = 'English_United Kingdom.1252'
     TABLESPACE = pg_default
     CONNECTION LIMIT = -1;
 
@@ -102,3 +102,5 @@ CREATE INDEX ratings_movie_id ON ratings (movie_id);
 CREATE INDEX ratings_user_id ON ratings (user_id); 
 
 CREATE INDEX movies_genres_cube ON movies USING gist (genre);
+
+CREATE INDEX movies_title_trigram ON movies USING gist (title gist_trgm_ops);
