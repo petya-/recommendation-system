@@ -27,6 +27,12 @@ psql -U postgres postgres -f /Users/path/to/file/mockData.pgsq
 
 The following scripts will show you the implementation of a search and generating movie recommendations
 
+### Search for movies and actors
+>run the following command in psql
+```
+psql -U postgres postgres -f /Users/path/to/file/search.pgsql
+```
+
 ### Get personalized recommendations
 >run the following command in psql
 ```
