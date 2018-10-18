@@ -103,5 +103,7 @@ CREATE INDEX user_movies_lists_movie_id ON user_movies_lists (movie_id);
 CREATE INDEX user_movies_lists_user_id ON user_movies_lists (user_id); 
 CREATE INDEX ratings_movie_id ON ratings (movie_id); 
 CREATE INDEX ratings_user_id ON ratings (user_id); 
-
+CREATE INDEX movies_title_pattern ON movies (lower(title) text_pattern_ops);
+CREATE INDEX movies_title_trigram ON movies USING gist(title gist_trgm_ops);
+CREATE INDEX movies_title_searchable ON movies USING gin(to_tsvector('english', title));
 CREATE INDEX movies_genres_cube ON movies USING gist (genre);

@@ -17,14 +17,23 @@ Make sure you have PostgreSQL installed and the right path to the pgsql files
 psql -U postgres postgres -f /Users/path/to/file/setupDB.pgsql
 ```
 
-
 ### Generating Mock Data
 >run the following command from your terminal
 ```
 psql -U postgres postgres -f /Users/path/to/file/mockData.pgsq
 ```
 
-### Search through the database
+## Search and reccommendations
+
+The following scripts will show you the implementation of a search with misspelled user input and generating movie recommendations
+
+### Search for movies and actors
+>run the following command in psql
+```
+some command
+```
+
+### Get personalized recommendations
 >run the following command in psql
 ```
 some command
