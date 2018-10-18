@@ -17,6 +17,8 @@ CREATE DATABASE "lhrDB"
 create extension cube;
 create extension fuzzystrmatch;
 create extension pg_trgm;
+create extension pgcrypto;
+
 
 -- Create tables
 
@@ -76,6 +78,7 @@ CREATE TABLE user_movies_lists (
     updated_at timestamp DEFAULT now()
 );
 CREATE TABLE watched_movies ( 
+    id SERIAL PRIMARY KEY,
     movie_id integer REFERENCES movies NOT NULL, 
     user_id integer REFERENCES actors NOT NULL, 
     created_at timestamp DEFAULT now(),
