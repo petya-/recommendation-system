@@ -104,3 +104,4 @@ CREATE INDEX movies_title_pattern ON movies (lower(title) text_pattern_ops);
 CREATE INDEX movies_title_trigram ON movies USING gist(title gist_trgm_ops);
 CREATE INDEX movies_title_searchable ON movies USING gin(to_tsvector('english', title));
 CREATE INDEX movies_genres_cube ON movies USING gist (genre);
+CREATE INDEX movies_title_trigram ON movies USING gist (title gist_trgm_ops);
