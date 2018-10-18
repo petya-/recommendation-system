@@ -107,3 +107,17 @@ CREATE INDEX ratings_user_id ON ratings (user_id);
 CREATE INDEX movies_genres_cube ON movies USING gist (genre);
 
 CREATE INDEX movies_title_trigram ON movies USING gist (title gist_trgm_ops);
+
+
+CREATE OR REPLACE FUNCTION searchMovie (titlename text) RETURNS TABLE (result text) AS $$
+    BEGIN
+        RETURN QUERY(SELECT title FROM movies WHERE title % titlename);
+    END;
+    $$ LANGUAGE plpgsql;
+
+
+CREATE OR REPLACE FUNCTION searchActor (titlename text) RETURNS TABLE (result text) AS $$
+    BEGIN
+        RETURN QUERY(SELECT name FROM actors WHERE name % titlename);
+    END;
+    $$ LANGUAGE plpgsql;
