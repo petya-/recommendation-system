@@ -106,19 +106,6 @@ INSERT INTO users (id, firstname, lastname, email, password) values
   (100, 'Dayle', 'Frango', 'dfrango2r@vk.com', crypt('4C0HlQDrQ9' , gen_salt('bf')))
 ;
 
-
-SELECT id 
-  FROM users
- WHERE email = 'johndoe@mail.com' 
-   AND password = crypt('johnssecretpassword', password);
-
-SELECT id 
-  FROM users
- WHERE email = 'johndoe@mail.com' 
-   AND password = crypt('docker', password);
-
-
-
 INSERT INTO genres (name,position) VALUES 
     ('Action',1),
     ('Adventure',2),
@@ -3005,12 +2992,6 @@ INSERT INTO movies (id,title,genre) VALUES
     (2862,'Avatar','(0,7,0,0,0,0,0,0,0,7,0,0,0,5,10,0,0,0)')
 ;
 
-<<<<<<< HEAD
-=======
-
-SELECT searchMovie('Do hard');
-
->>>>>>> 6765a51722f0198f538197dc9fa684756e141b07
 INSERT INTO actors (id,name) VALUES 
     (1,'50 Cent'),
     (2,'A Martinez'),
@@ -7999,8 +7980,6 @@ INSERT INTO actors (id,name) VALUES
     (4985,'Zohra Lampert'),
     (4986,'Zooey Deschanel')
 ;
-
-SELECT searchActor('Clit Eastwood');
 
 INSERT INTO movies_actors (movie_id,actor_id) VALUES 
     (1,3165),

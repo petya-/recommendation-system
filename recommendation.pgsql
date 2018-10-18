@@ -2,7 +2,8 @@
 
 -- Find movies by actor
 
-CREATE or REPLACE FUNCTION find_movies_by_actor( actor_name text, max_limit integer ) RETURNS setof text AS $$
+CREATE or REPLACE FUNCTION find_movies_by_actor( actor_name text, max_limit integer ) 
+RETURNS setof text AS $$
 BEGIN
 
   RETURN QUERY EXECUTE 'SELECT m.title
@@ -18,6 +19,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- Find similar movies based on genre
+
 CREATE OR REPLACE FUNCTION find_movies_like( movie_title text, distance integer, max_limit integer )
 RETURNS SETOF text AS $$
 DECLARE
@@ -39,6 +41,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- Find top 5 similar movies
+
 CREATE OR REPLACE FUNCTION find_top5( movie_or_actor text)
 RETURNS SETOF text AS $$
 DECLARE
@@ -76,9 +79,10 @@ $$ LANGUAGE plpgsql;
 
 -- Find movies user has seen
 
-CREATE OR REPLACE FUNCTION find_watched_movies (user_id integer )
+CREATE OR REPLACE FUNCTION find_watched_movies( user_id integer )
 RETURNS SETOF text AS $$
 BEGIN
+
   RETURN QUERY EXECUTE
   'SELECT m.title
   FROM movies m, (SELECT movie_id FROM watched_movies WHERE user_id = $1) wm
@@ -90,30 +94,36 @@ $$ LANGUAGE plpgsql;
 
 -- Find user based on watched movie
 
-CREATE OR REPLACE FUNCTION find_similar_user (movie_id integer, user_id integer )
+CREATE OR REPLACE FUNCTION find_similar_users( movie_id integer, user_id integer )
 RETURNS table(id integer) AS $$
 BEGIN
+
   RETURN QUERY EXECUTE
   'SELECT u.id
   FROM users u, (SELECT user_id FROM watched_movies WHERE movie_id = $1) wm
   WHERE u.id = wm.user_id
   AND u.id != $2'
   USING movie_id, user_id;
+
 END;
 $$ LANGUAGE plpgsql;
 
--- Find most rated movies
+-- Find highest rated movies
 
 CREATE OR REPLACE FUNCTION find_highest_rated_movies()
 RETURNS SETOF text AS $$
 BEGIN
+
   RETURN QUERY EXECUTE
-  'SELECT m
+  'SELECT m.title
   FROM movies m, (SELECT movie_id FROM ratings WHERE rating = 5) wm
   WHERE m.id = wm.movie_id';
 
 END;
 $$ LANGUAGE plpgsql;
+
+
+-- Test functions
 
 SELECT find_movies_like('Star Wars', 5, 10);
 SELECT find_actors_starring_movie('Star Wars');
@@ -122,5 +132,5 @@ SELECT find_top5('Star Wars');
 SELECT find_top5('Mark Hamill');
 SELECT find_watched_movies(1);
 
-SELECT find_similar_user(542, 15) LIMIT 1;
-SELECT find_highest_rated_movies();
+SELECT find_similar_users(542, 15) LIMIT 1;
+SELECT find_highest_rated_movies() LIMIT 10;
