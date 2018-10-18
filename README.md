@@ -25,18 +25,12 @@ psql -U postgres postgres -f /Users/path/to/file/mockData.pgsq
 
 ## Search and reccommendations
 
-The following scripts will show you the implementation of a search with misspelled user input and generating movie recommendations
-
-### Search for movies and actors
->run the following command in psql
-```
-some command
-```
+The following scripts will show you the implementation of a search and generating movie recommendations
 
 ### Get personalized recommendations
 >run the following command in psql
 ```
-some command
+psql -U postgres postgres -f /Users/path/to/file/recommendation.pgsql
 ```
 
 ## Authors

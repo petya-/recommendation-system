@@ -4,8 +4,6 @@ CREATE DATABASE "lhrDB"
     WITH 
     OWNER = postgres
     ENCODING = 'UTF8'
-    LC_COLLATE = 'C'
-    LC_CTYPE = 'C'
     TABLESPACE = pg_default
     CONNECTION LIMIT = -1;
 
@@ -26,8 +24,8 @@ CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     email text NOT NULL UNIQUE,
     password text NOT NULL,
-    firstName text,
-    lastName text,
+    firstname text,
+    lastname text,
     enabled boolean DEFAULT TRUE,
     created_at timestamp DEFAULT now(),
     updated_at timestamp DEFAULT now()
@@ -52,7 +50,6 @@ CREATE TABLE movies (
     title text, 
     genre cube,
     release_date date,
-    avg_rating float,
     created_at timestamp DEFAULT now(),
     updated_at timestamp DEFAULT now()
 );

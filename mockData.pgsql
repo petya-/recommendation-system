@@ -3,7 +3,7 @@
 
 -- Populate user table
 
-insert into users (id, firstname, lastname, email, password) VALUES 
+INSERT INTO users (id, firstname, lastname, email, password) values 
   (1, 'John', 'Doe', 'johndoe@mail.com', crypt('johnssecretpassword', gen_salt('bf'))),
   (2, 'Meara', 'Garrold', 'mgarrold1@nifty.com', crypt('tS9KjwNY' , gen_salt('bf'))),
   (3, 'Merissa', 'Groocock', 'mgroocock2@oaic.gov.au', crypt('ui2owNsWPz' , gen_salt('bf'))),
@@ -107,15 +107,16 @@ insert into users (id, firstname, lastname, email, password) VALUES
 ;
 
 
--- SELECT id 
---   FROM users
---  WHERE email = 'johndoe@mail.com' 
---    AND password = crypt('johnssecretpassword', password);
+SELECT id 
+  FROM users
+ WHERE email = 'johndoe@mail.com' 
+   AND password = crypt('johnssecretpassword', password);
 
--- SELECT id 
---   FROM users
---  WHERE email = 'johndoe@mail.com' 
---    AND password = crypt('docker', password);
+SELECT id 
+  FROM users
+ WHERE email = 'johndoe@mail.com' 
+   AND password = crypt('docker', password);
+
 
 
 INSERT INTO genres (name,position) VALUES 
@@ -671,8 +672,8 @@ INSERT INTO movies (id,title,genre) VALUES
     (529,'Marie Antoinette','(0,0,0,0,0,0,0,5,0,0,5,0,0,0,0,0,0,0)'),
     (530,'The Fortune Cookie','(0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0)'),
     (531,'Children of a Lesser God','(0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0)'),
-    (532,'Star Wars: Episode V - The Empire Strikes Back','(0,7,0,0,0,0,0,0,0,7,0,0,0,2,10,0,0,0)'),
-    (533,'Star Wars: Episode I - The Phantom Menace','(7,5,0,0,0,0,0,5,0,5,0,0,0,0,10,0,0,0)'),
+    (532,'Star Wars: Episode V - The Empire Strikes Back','(0,7,0,0,0,0,0,0,0,7,0,0,0,0,10,0,0,0)'),
+    (533,'Star Wars: Episode I - The Phantom Menace','(0,7,0,0,0,0,0,0,0,7,0,0,0,0,10,0,0,0)'),
     (534,'Salvador','(0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0)'),
     (535,'Inherit The Wind','(0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0)'),
     (536,'Don Juan DeMarco','(0,0,0,5,0,0,0,5,0,0,0,0,0,0,0,0,0,0)'),
@@ -2902,7 +2903,7 @@ INSERT INTO movies (id,title,genre) VALUES
     (2760,'The Strange Door','(0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0)'),
     (2761,'The Flesh and the Fiends','(0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0)'),
     (2762,'White Dog','(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0)'),
-    (2763,'Let''s Scare Jessica to Death','(0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,5,0)'),
+    (2763,'Let’s Scare Jessica to Death','(0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,5,0)'),
     (2764,'The Vikings','(0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)'),
     (2765,'Visiting Hours','(0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,5,0)'),
     (2766,'Safari','(0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0)'),
@@ -2982,14 +2983,15 @@ INSERT INTO movies (id,title,genre) VALUES
     (2840,'The Buddy Holly Story','(0,0,0,0,0,0,0,5,0,0,0,0,5,0,0,0,0,0)'),
     (2841,'Holiday Affair','(0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0)'),
     (2842,'Three Strangers','(0,0,0,0,5,0,0,5,0,0,0,0,0,0,0,0,0,0)'),
-    (2843,'Hobson''s Choice','(0,0,0,5,0,0,0,5,0,0,0,0,0,0,0,0,0,0)'),
-    (2844,'They Won''t Believe Me','(0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,5,0)'),
+    (2843,'Hobson’s Choice','(0,0,0,5,0,0,0,5,0,0,0,0,0,0,0,0,0,0)'),
+    (2844,'They Won’t Believe Me','(0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,5,0)'),
     (2845,'Palm Springs Weekend','(0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0)'),
     (2846,'They All Laughed','(0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0)'),
     (2847,'Conquest of Cochise','(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5)'),
     (2848,'House of Dracula','(0,0,0,0,0,0,0,0,0,5,0,5,0,0,0,0,0,0)'),
     (2849,'Star 80','(0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0)'),
     (2850,'Nightwing','(0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0)'),
+    (2851,'Has Anybody Seen My Gal? Pt2','(0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0)'),
     (2852,'Has Anybody Seen My Gal?','(0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0)'),
     (2853,'Riff-Raff','(0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0)'),
     (2854,'The Sun Also Rises','(0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0)'),
@@ -2998,11 +3000,10 @@ INSERT INTO movies (id,title,genre) VALUES
     (2857,'The Purple Plain','(0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0)'),
     (2858,'Deep End','(0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0)'),
     (2859,'Easy to Love','(0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0)'),
-    (2860,'Tarzan''s Greatest Adventure','(0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)'),
+    (2860,'Tarzan’s Greatest Adventure','(0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)'),
     (2861,'Texas Across the River','(0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,5)'),
     (2862,'Avatar','(0,7,0,0,0,0,0,0,0,7,0,0,0,5,10,0,0,0)')
 ;
-
 
 INSERT INTO actors (id,name) VALUES 
     (1,'50 Cent'),
@@ -7992,6 +7993,8 @@ INSERT INTO actors (id,name) VALUES
     (4985,'Zohra Lampert'),
     (4986,'Zooey Deschanel')
 ;
+
+SELECT name FROM actors WHERE name % 'Clit Eatwad';
 
 INSERT INTO movies_actors (movie_id,actor_id) VALUES 
     (1,3165),
@@ -21167,8 +21170,11 @@ INSERT INTO watched_movies (id, movie_id, user_id) values
     (997, 773, 97),
     (998, 1776, 66),
     (999, 2207, 11),
-    (1000, 542, 13)
+    (1000, 542, 13),
+    (1001, 542, 15),
+    (1002, 542, 1)
 ;
+
 
 INSERT INTO ratings (id, movie_id, user_id, rating) VALUES
   (1, 2803, 66, 5),
